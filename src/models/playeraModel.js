@@ -58,7 +58,11 @@ const Playera = sequelize.define('Playera', {
     type: DataTypes.INTEGER,
     allowNull: false,
     defaultValue: 0,
-  }
+  },
+  sexo: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
 }, {
   tableName: 'tbl_playera',
   timestamps: false,

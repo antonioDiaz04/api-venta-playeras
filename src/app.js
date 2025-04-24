@@ -9,10 +9,15 @@ const app = express();
 
 conectarDB();
 
-// Lee los orígenes permitidos desde .env o usa http://localhost:4200 como predeterminado
+// Lee los orígenes permitidos desde .env o usa varios defaults para desarrollo
 const corsOrigins = process.env.CORS_ORIGINS
   ? process.env.CORS_ORIGINS.split(",").map(origin => origin.trim())
-  : ['http://localhost:4200']; // default para desarrollo
+  : [
+      'http://localhost:4200',
+      'http://127.0.0.1:4200',
+      'http://localhost:3000',
+      'https://venta-p.vercel.app'
+    ];
 
 // Middleware de CORS
 app.use(cors({
